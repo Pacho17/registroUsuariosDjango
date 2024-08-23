@@ -12,4 +12,8 @@ def registerUser(request):
             return redirect('listarUsuario')
     else:
         form = PersonaForm()
-    return render(request,"registroUsuario.html",{ 'form': form})
+    return render(request,"registrarUsuario.html",{'form': form})
+
+def listarUsuario(request):
+    personas = Persona.objects.all()
+    return render(request,"listarUsuario.html",{'personas':personas})
